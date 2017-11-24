@@ -203,4 +203,33 @@ export const getNavData = app => [
       icon: 'book',
     },
   },
+  {
+    component: dynamicWrapper(app, [], import('../layouts/PhoneLayout')),
+    layout: 'PhoneLayout',
+    children: [
+      {
+        name: 'H5',
+        icon: 'book',
+        path: 'phone',
+        children: [
+          {
+            name: 'osc',
+            path: 'osc',
+            children: [
+              {
+                name: 'auth',
+                path: 'auth',
+                component: dynamicWrapper(app, [], import('../routes/Osc/Auth')),
+              },
+              {
+                name: 'user',
+                path: 'user/:id',
+                component: dynamicWrapper(app, ['osc'], import('../routes/Osc/User')),
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

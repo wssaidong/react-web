@@ -29,6 +29,7 @@ function getLayout(navData, path) {
     return null;
   }
   const route = navData.filter(item => item.layout === path)[0];
+  console.log(route.component.name);
   return {
     component: route.component,
     layout: route.layout,
@@ -39,8 +40,9 @@ function getLayout(navData, path) {
 
 function RouterConfig({ history, app }) {
   const navData = getNavData(app);
-  const UserLayout = getLayout(navData, 'UserLayout').component;
-  const BasicLayout = getLayout(navData, 'BasicLayout').component;
+  /* const UserLayout = getLayout(navData, 'UserLayout').component;
+  const BasicLayout = getLayout(navData, 'BasicLayout').component; */
+  const PhoneLayout = getLayout(navData, 'PhoneLayout').component;
 
   const passProps = {
     app,
@@ -54,8 +56,9 @@ function RouterConfig({ history, app }) {
     <LocaleProvider locale={zhCN}>
       <Router history={history}>
         <Switch>
-          <Route path="/user" render={props => <UserLayout {...props} {...passProps} />} />
-          <Route path="/" render={props => <BasicLayout {...props} {...passProps} />} />
+          <Route path="/phone" render={props => <PhoneLayout {...props} {...passProps} />} />
+          {/* <Route path="/user" render={props => <UserLayout {...props} {...passProps} />} />
+          <Route path="/" render={props => <BasicLayout {...props} {...passProps} />} /> */}
         </Switch>
       </Router>
     </LocaleProvider>
