@@ -11,22 +11,12 @@ class PhoneLayout extends React.PureComponent {
     const { location } = this.props;
     return { location };
   }
-  getPageTitle() {
-    const { getRouteData, location } = this.props;
-    const { pathname } = location;
-    let title = '';
-    getRouteData('PhoneLayout').forEach((item) => {
-      if (item.path === pathname) {
-        title = `${item.name}`;
-      }
-    });
-    return title;
-  }
+
   render() {
     const { getRouteData } = this.props;
     return (
-      <DocumentTitle title={this.getPageTitle()}>
-        <div>
+      <DocumentTitle title={'H5'}>
+        <div style={{ height: '100%' }}>
           {
             getRouteData('PhoneLayout').map(item =>
               (

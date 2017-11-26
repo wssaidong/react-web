@@ -228,6 +228,17 @@ export const getNavData = app => [
               },
             ],
           },
+          {
+            name: 'gain',
+            path: 'gain',
+            children: [
+              {
+                name: 'info',
+                path: 'info',
+                component: dynamicWrapper(app, ['gain'], import('../routes/Gain/Gain')),
+              },
+            ],
+          },
         ],
       },
     ],
